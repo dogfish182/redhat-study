@@ -18,20 +18,23 @@ virtual box lab has the following logic
 all systems will have 2 NICS (static configs) primary system nic will be configured in a 'NAT Network' in virtualbox terminology
 secondary nic will be 'host only networking'. 
 
-Host system can then communicate via ssh etc to the Vbox guest. All vbox guests can address the host and the outside world via that nat network. 
+Host system can then communicate via ssh etc to the Vbox guest. All vbox guests can address the host and the outside world via the natnetwork. 
 
 Systems are static configured in the following way
 
 server1.bat.net 
 (nat network) NIC 1:  172.18.0.200/24 gw=172.18.0.1 dns=8.8.8.8,8.8.4.4
+
 (host only)   NIC 2:  192.168.56.200/24 
 
 server2.bat.net
 (nat network) NIC 1:  172.18.0.201/24 gw=172.18.0.1 dns=8.8.8.8,8.8.4.4
+
 (host only)   NIC 2:  192.168.56.201/24
 
 kdc.bat.net
 (nat network) NIC 1:  172.18.0.202/24 gw=172.18.0.1 dns=8.8.8.8,8.8.4.4
+
 (host only)   NIC 2:  192.168.56.201/24
 
 to serve the kickstart configs install a basic apache webhost on your host machine. by default with your firewall on, the webserver will be available on your main nic for the guests. other machines on the network will not be able to reach your webserver due to the firewall. 
