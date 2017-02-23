@@ -8,9 +8,15 @@ HOSTONLYNET="vboxnet0"
 VMLIST="server1.bat.net server2.bat.net kdc.bat.net"
 DISKPATH="/home/ghawker/VirtualBox VMs"
 #add path to install disk to have it mounted. leave blank if not required.
-INSTALLMEDIA="/home/ghawker/Software/CentOS-7-x86_64-Minimal-1611.iso"
+INSTALLMEDIA="/home/ghawker/Software/rhel-server-7.3-x86_64-dvd.iso"
 
 for VM in $VMLIST; do
+	#skip any existing boxes based on name
+	ALLBOXES=$(vboxmanage list vms | cut -d " " -f1|sed s/\"//g)
+	if [[ $ALLBOXES == *"$VM"* ]]; then
+		echo "$VM already exists, skipping" 
+		continue
+	fi
 	VBoxManage createvm --name "${VM}" --register --ostype $OSTYPE
 	if [ $? -ne 0 ]; then
 		echo "VBox creation failed, exiting"
