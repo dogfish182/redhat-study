@@ -3,9 +3,9 @@
 OSTYPE=RedHat_64
 MEMORY=1024
 CPUS=1
-NATNETWORK="Homey"
-HOSTONLYNET="vboxnet0"
-VMLIST="server1.bat.net server2.bat.net kdc.bat.net"
+NATNETWORK="rhce.local"
+HOSTONLYNET="vboxnet1"
+VMLIST="kdc.rhce.local server1.rhce.local server2.rhce.local"
 DISKPATH="/home/ghawker/VirtualBox VMs"
 #add path to install disk to have it mounted. leave blank if not required.
 INSTALLMEDIA="/home/ghawker/Software/rhel-server-7.3-x86_64-dvd.iso"
