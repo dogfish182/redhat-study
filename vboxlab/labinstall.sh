@@ -5,7 +5,7 @@ MEMORY=1024
 CPUS=1
 NATNETWORK="rhce.local"
 HOSTONLYNET="vboxnet1"
-VMLIST="kdc.rhce.local server1.rhce.local server2.rhce.local"
+VMLIST="ipa.rhce.local server1.rhce.local server2.rhce.local"
 DISKPATH="/home/ghawker/VirtualBox VMs"
 #add path to install disk to have it mounted. leave blank if not required.
 INSTALLMEDIA="/home/ghawker/Software/rhel-server-7.3-x86_64-dvd.iso"
